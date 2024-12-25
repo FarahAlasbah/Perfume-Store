@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Perfume Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="script.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function addToCart(productName, productPrice, productImage) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingItem = cart.find(item => item.name === productName);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name: productName, price: parseFloat(productPrice.replace("$", "")), image: productImage, quantity: 1 });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            showCustomAlert("Item added to cart!");
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = itemCount;
+        }
+
+        function showCustomAlert(message) {
+            const alertBox = document.createElement('div');
+            alertBox.className = 'custom-alert';
+            alertBox.textContent = message;
+            document.body.appendChild(alertBox);
+            setTimeout(() => {
+                alertBox.fadeOut(500, () => {
+                    alertBox.remove();
+                });
+            }, 3000);
+        }
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function () {
+                const productName = button.getAttribute('data-name');
+                const productPrice = button.getAttribute('data-price');
+                const productImage = button.getAttribute('data-image');
+
+                addToCart(productName, productPrice, productImage);
+            });
+        });
+
+        updateCartCount();
+    });
+</script>
+  <style>
+    .link {
+        color: black;
+        font-weight: bold;
+        text-decoration: none;
+        position: relative;
+    }
+  </style>
+    
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="store-name">
+        <h1><a href="index.html">Fragrance Atelier</a></h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="link">Home</a>
+        <a href="product.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="cart.html">
+            Cart (<span id="cart-count">0</span>)
+        </a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section id="hero">
+      <video autoplay muted loop id="hero-video">
+        <source src="heroperfume.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="hero-content">
+        <h2>Discover Our Deluxe Perfumes</h2>
+        <a href="product.html" class="hero-button">Shop Now</a>
+      </div>
+    </section>
+    <section id="featured-products">
+        <h2>Featured Products</h2>
+        <div class="featured-products-container">
+          <div class="product-card">
+            <img src="perfume1.png" alt="Herod Perfume">
+            <h3>HEROD</h3>
+            <p>Amber, Vanilla, Tobacco</p>
+            <p class="price">$365</p>
+            <p class="size">125ml</p>
+            <button class="add-to-cart" data-name="HEROD" data-price="$365" data-image="perfume1.png">Add to Cart</button>
+          </div>
+          <div class="product-card">
+            <img src="perfume3.png" alt="Perfume 2">
+            <h3>DELINA</h3>
+            <p>Floral, Citrus</p>
+            <p class="price">$60</p>
+            <p class="size">100ml</p>
+            <button class="add-to-cart" data-name="DELINA" data-price="$60" data-image="perfume3.png">Add to Cart</button>
+          </div>
+          <div class="product-card">
+            <img src="perfume4.png" alt="Perfume 3">
+            <h3>PERCIVAL</h3>
+            <p>Woody, Spicy</p>
+            <p class="price">$70</p>
+            <p class="size">150ml</p>
+            <button class="add-to-cart" data-name="PERCIVAL" data-price="$70" data-image="perfume4.png">Add to Cart</button>
+          </div>
+        </div>
+    </section>
+    
+    
+  </main>
+  <footer>
+    <p>Contact us: info@FragranceAtelier.com | Follow us on social media!</p>
+    <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+  <button id="scrollToTop">↑ Top</button>
+</body>
+</html>

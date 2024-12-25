@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Perfume Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="script.js" defer></script>
+    <style>
+        body {
+          background-image: url('back2.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+        }
+        .cart-link {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .cart-link span {
+            font-weight: bold;
+        }
+      </style>
+      
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="store-name">
+                <h1><a href="index.html">Fragrance Atelier</a></h1>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="product.html">Products</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="cart.html" class="cart-link">
+                    Cart (<span id="cart-count">0</span>)
+                </a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="cart">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                
+            </div>
+            <ul id="cart-items">
+                <li class="cart-item">
+                    <img src="perfume.jpg" alt="Layton Perfume" class="product-image">
+                    <div class="cart-item-details">
+                        <h3 class="product-name">LAYTON</h3>
+                        <p class="product-description">125ml</p>
+                        <p class="product-price">$365</p>
+                        <div class="product-quantity">
+                            <button class="quantity-btn-minus-btn">-</button>
+                            <span class="quantity-value">1</span>
+                            <button class="quantity-btn-plus-btn">+</button>
+                        </div>
+                        <a href="#" class="remove-item">Remove</a>
+                    </div>
+                </li>
+            </ul>
+            <p id="cart-total">Total: $365</p>
+            <button id="clear-cart">Clear Cart</button>
+            <button id="checkout">Checkout</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact us: info@FragranceAtelier.com | Follow us on social media!</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" target="_blank" class="social-icon"><i
+                    class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+    <button id="scrollToTop">↑ Top</button>
+</body>
+
+</html>

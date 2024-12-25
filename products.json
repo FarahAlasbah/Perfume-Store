@@ -1,0 +1,128 @@
+[
+    {
+        "name": "Eternal Blossom",
+        "price": "$50",
+        "image": "perfume1.png",
+        "description": "Citrus, Green Tea"
+    },
+    {
+        "name": "Velvet Whisper",
+        "price": "$65",
+        "image": "perfume3.png",
+        "description": "Jasmine, Rose"
+    },
+    {
+        "name": "Golden Reverie",
+        "price": "$40",
+        "image": "perfume2.png",
+        "description": "Woody, Spicy"
+    },
+    {
+        "name": "Crimson Grace",
+        "price": "$55",
+        "image": "perfume4.png",
+        "description": "Peach, Vanilla"
+    },
+    {
+        "name": "Opal Essence",
+        "price": "$70",
+        "image": "perfume1.png",
+        "description": "Amber, Musk"
+    },
+    {
+        "name": "Amber Horizon",
+        "price": "$45",
+        "image": "perfume3.png",
+        "description": "Sea Breeze, Mint"
+    },
+    {
+        "name": "Midnight Petals",
+        "price": "$60",
+        "image": "perfume2.png",
+        "description": "Oud, Saffron"
+    },
+    {
+        "name": "Jasmine Drift",
+        "price": "$50",
+        "image": "perfume4.png",
+        "description": "Citrus, Ginger"
+    },
+    {
+        "name": "Sapphire Mist",
+        "price": "$65",
+        "image": "perfume1.png",
+        "description": "Rose, Lily"
+    },
+    {
+        "name": "Iris Bloom",
+        "price": "$40",
+        "image": "perfume3.png",
+        "description": "Leather, Tobacco"
+    },
+    {
+        "name": "Desert Mirage",
+        "price": "$55",
+        "image": "perfume2.png",
+        "description": "Amber, Vanilla"
+    },
+    {
+        "name": "Nocturnal Bliss",
+        "price": "$70",
+        "image": "perfume4.png",
+        "description": "Floral, Citrus"
+    },
+    {
+        "name": "Mystic Ember",
+        "price": "$45",
+        "image": "perfume1.png",
+        "description": "Woody, Spicy"
+    },
+    {
+        "name": "Saffron Dusk",
+        "price": "$60",
+        "image": "perfume3.png",
+        "description": "Peach, Vanilla"
+    },
+    {
+        "name": "Celestial Veil",
+        "price": "$50",
+        "image": "perfume2.png",
+        "description": "Amber, Musk"
+    },
+    {
+        "name": "Sugar Plum Kiss",
+        "price": "$65",
+        "image": "perfume4.png",
+        "description": "Sea Breeze, Mint"
+    },
+    {
+        "name": "Twilight Spark",
+        "price": "$40",
+        "image": "perfume1.png",
+        "description": "Oud, Saffron"
+    },
+    {
+        "name": "Lush Radiance",
+        "price": "$55",
+        "image": "perfume3.png",
+        "description": "Citrus, Ginger"
+    },
+    {
+        "name": "Frosted Glow",
+        "price": "$70",
+        "image": "perfume2.png",
+        "description": "Rose, Lily"
+    },
+    {
+        "name": "Cotton Cloud",
+        "price": "$45",
+        "image": "perfume4.png",
+        "description": "Leather, Tobacco"
+    },
+    {
+        "name": "Neon Aura",
+        "price": "$65",
+        "image": "perfume2.png",
+        "description": "Floral, Citrus"
+    }
+]

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Perfume Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-image: url('back2.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .custom-alert {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #464545;
+            color: white;
+            padding: 20px 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out, fadeOut 0.5s ease-out 2.5s;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="store-name">
+                <h1><a href="index.html">Fragrance Atelier</a></h1>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="product.html">Products</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html" class="link">Contact Us</a>
+                <a href="cart.html" class="cart-link">
+                    Cart (<span id="cart-count">0</span>)
+                </a>
+            </nav>
+        </div>
+    </header>
+    <main id="contact-us-main">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <input type="text" id="first-name" placeholder="First Name" required>
+            <input type="text" id="last-name" placeholder="Last Name" required>
+            <input type="text" id="mobile" placeholder="Mobile" required>
+            <input type="text" id="address" placeholder="Address" required>
+            <input type="number" id="age" placeholder="Age" required>
+            <input type="text" id="hobbies" placeholder="Hobbies" required>
+            <input type="text" id="country" placeholder="Country" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <textarea id="message" placeholder="Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="confirmation"></div>
+    </main>
+
+    <footer>
+        <p>Contact us: info@FragranceAtelier.com</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" target="_blank" class="social-icon"><i
+                    class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const firstName = document.getElementById('first-name').value.trim();
+            const lastName = document.getElementById('last-name').value.trim();
+            const mobile = document.getElementById('mobile').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const age = document.getElementById('age').value.trim();
+            const hobbies = document.getElementById('hobbies').value.trim();
+            const country = document.getElementById('country').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!firstName || !lastName || !mobile || !address || !age || !hobbies || !country || !email || !message) {
+                showCustomAlert('Please fill out all fields.', 'red');
+                return;
+            }
+
+            if (isNaN(age) || age <= 0) {
+                showCustomAlert('Please enter a valid age.', 'red');
+                return;
+            }
+
+            showCustomAlert('Thank you for your message. We will get back to you soon.', 'green');
+            document.getElementById('contact-form').reset();
+        });
+
+        function showCustomAlert(message, color) {
+            const alertBox = document.createElement('div');
+            alertBox.className = 'custom-alert';
+
+            alertBox.textContent = message;
+            document.body.appendChild(alertBox);
+            setTimeout(() => {
+                alertBox.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>
