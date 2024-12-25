@@ -15,6 +15,11 @@
             background-attachment: fixed;
         }
 
+        .error {
+            color: red;
+            font-size: 18px;
+        }
+
         .alert {
             position: fixed;
             bottom: 20px;
@@ -53,6 +58,8 @@
             const form = document.getElementById("contact-form");
             form.addEventListener("submit", function (event) {
                 event.preventDefault();
+                clearErrors();
+
                 const firstName = document.getElementById("first-name").value.trim();
                 const lastName = document.getElementById("last-name").value.trim();
                 const mobile = document.getElementById("mobile").value.trim();
@@ -63,22 +70,60 @@
                 const email = document.getElementById("email").value.trim();
                 const message = document.getElementById("message").value.trim();
 
-                if (!firstName || !lastName || !mobile || !address || !age || !hobbies || !country || !email || !message) {
-                    showAlert("Please fill out all fields.");
-                    return;
+                let isValid = true;
+
+                if (!firstName) {
+                    showError("first-name", "First name is required.");
+                    isValid = false;
                 }
 
-                if (isNaN(age) || age <= 0) {
-                    showAlert("Please enter a valid age.");
-                    return;
+                if (!lastName) {
+                    showError("last-name", "Last name is required.");
+                    isValid = false;
                 }
 
-                const confirmation = document.getElementById("confirmation");
-                showAlert(`Thank you, ${firstName} ${lastName}. Your message has been received.`);
-                form.reset();
-            });
+                if (!mobile) {
+                    showError("mobile", "Mobile number is required.");
+                    isValid = false;
+                }
 
-            function showAlert(message) {
+                if (!address) {
+                    showError("address", "Address is required.");
+                    isValid = false;
+                }
+
+                if (!age || isNaN(age) || age <= 0) {
+                    showError("age", "Please enter a valid age.");
+                    isValid = false;
+                }
+
+                if (!hobbies) {
+                    showError("hobbies", "Hobbies are required.");
+                    isValid = false;
+                }
+
+                if (!country) {
+                    showError("country", "Country is required.");
+                    isValid = false;
+                }
+
+                if (!email) {
+                    showError("email", "Email is required.");
+                    isValid = false;
+                }
+
+                if (!message) {
+                    showError("message", "Message is required.");
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    const confirmation = document.getElementById("confirmation");
+                    showAlert(`Thank you, ${firstName} ${lastName}. Your message has been received.`);
+                    form.reset();
+                }
+
+                function showAlert(message) {
                 const alert = document.createElement("div");
                 alert.className = "alert";
                 alert.textContent = message;
@@ -86,6 +131,20 @@
                 setTimeout(() => {
                     alert.remove();
                 }, 3000);
+            }
+            });
+
+            function showError(fieldId, message) {
+                const field = document.getElementById(fieldId);
+                const error = document.createElement("div");
+                error.className = "error";
+                error.textContent = message;
+                field.parentNode.insertBefore(error, field.nextSibling);
+            }
+
+            function clearErrors() {
+                const errors = document.querySelectorAll(".error");
+                errors.forEach(error => error.remove());
             }
         });
     </script>
